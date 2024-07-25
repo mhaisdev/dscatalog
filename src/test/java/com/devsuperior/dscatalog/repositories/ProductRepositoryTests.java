@@ -20,6 +20,8 @@ public class ProductRepositoryTests {
 	@Test
 	public void deleteShouldDeleteObjectWhenIdExists() {
 		
+		existingId = 1L;
+		
 		repository.deleteById(existingId);
 
 		Optional<Product> result = repository.findById(existingId);
