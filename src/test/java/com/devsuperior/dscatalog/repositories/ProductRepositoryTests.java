@@ -3,6 +3,8 @@ package com.devsuperior.dscatalog.repositories;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -17,10 +19,14 @@ public class ProductRepositoryTests {
 	
 	private long existingId;
 	
+	@BeforeEach
+	void setUp() throws Exception {
+		existingId = 1L;
+	}
+	
+	
 	@Test
 	public void deleteShouldDeleteObjectWhenIdExists() {
-		
-		existingId = 1L;
 		
 		repository.deleteById(existingId);
 
