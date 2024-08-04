@@ -33,9 +33,12 @@ public class ProductRepositoryTests {
 		product.setId(null);
 		
 		product = repository.save(product);
+		Optional<Product> result = repository.findById(product.getId());
 		
 		Assertions.assertNotNull(product.getId());
 		Assertions.assertEquals(countTotalProducts + 1L, product.getId());
+		Assertions.assertTrue(result.isPresent());
+		Assertions.assertSame(result.get(), product);
 	}
 	
 	@Test
